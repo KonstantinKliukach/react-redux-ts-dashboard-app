@@ -1,10 +1,13 @@
 import React from 'react';
 
 import ReduxContext from './redux';
+import ThemeContext from './theme';
 
 const AppContext: React.FC = (props) => (
   <ReduxContext>
-    {props.children}
+    <ThemeContext>
+      {props.children}
+    </ThemeContext>
   </ReduxContext>
 );
 
