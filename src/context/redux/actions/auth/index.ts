@@ -34,6 +34,7 @@ const userMock: User = {
   name: 'av.baruzdin',
   email: 'av.baruzdin@severstal.ru',
   avatar: '',
+  company: 'Severstal',
 };
 
 export const auth = (): ThunkAction<

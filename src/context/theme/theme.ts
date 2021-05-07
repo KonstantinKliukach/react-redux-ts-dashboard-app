@@ -17,10 +17,12 @@ const theme = {
       active: '#B4C1E4',
     },
     disabled: '#E0E7F8',
+    active: '#EEF1FA',
   },
   fonts: ['sans-serif', 'Roboto'],
   fontWeights: {
     normal: 500,
+    regular: 400,
   },
   fontSizes: {
     small: '0.75rem',
