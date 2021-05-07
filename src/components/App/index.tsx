@@ -3,6 +3,8 @@ import Backdrop from 'components/Backdrop';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAuthState } from 'context/redux/reducers/auth';
 import { auth } from 'context/redux/actions/auth';
+import { BrowserRouter as Router } from 'react-router-dom';
+import AppRoutes from 'components/AppRoutes';
 
 const App: React.FC = () => {
   const dispatch = useDispatch();
@@ -18,7 +20,9 @@ const App: React.FC = () => {
     );
   }
   return (
-    <>Nya</>
+    <Router>
+      <AppRoutes />
+    </Router>
   );
 };
 
