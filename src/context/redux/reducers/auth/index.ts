@@ -12,7 +12,6 @@ export interface User {
   name: string,
   email: string,
   avatar: string,
-  address: string,
 }
 
 interface UserState {
@@ -45,6 +44,7 @@ const reducer: Reducer<
       const { user } = action.payload;
       return {
         ...state,
+        isLoading: false,
         isAuthed: true,
         user,
       };
@@ -53,6 +53,7 @@ const reducer: Reducer<
       const { error } = action.payload;
       return {
         ...initialState,
+        isLoading: false,
         error,
       };
     }

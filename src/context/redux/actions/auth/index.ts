@@ -27,6 +27,15 @@ export interface AuthFailureAction extends Action<typeof AUTH_FAILURE> {
 
 export type AuthActions = AuthRequestAction | AuthSuccessAction | AuthFailureAction | LogoutAction;
 
+// MOCK
+const sleep = (ms: number) => new Promise((resolve):any => setTimeout(resolve, ms));
+
+const userMock: User = {
+  name: 'av.baruzdin',
+  email: 'av.baruzdin@severstal.ru',
+  avatar: '',
+};
+
 export const auth = (): ThunkAction<
 Promise<void>,
 RootState,
@@ -37,7 +46,13 @@ AuthActions
     type: AUTH_REQUEST,
   });
   try {
-    console.log('mock');
+    await sleep(3000);
+    dispatch({
+      type: AUTH_SUCCESS,
+      payload: {
+        user: userMock,
+      },
+    });
   } catch (error) {
     const err = error as Error;
     dispatch({
