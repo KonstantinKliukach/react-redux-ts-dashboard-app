@@ -13,7 +13,7 @@ const AppRoutes: React.FC = () => (
     <Route path='/notifications'>
       <>notifications</>
     </Route>
-    <Redirect to="/analytics"/>
+    <Redirect to="/notifications"/>
   </Switch>
 );
 

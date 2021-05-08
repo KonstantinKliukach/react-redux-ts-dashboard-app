@@ -47,7 +47,7 @@ AuthActions
     type: AUTH_REQUEST,
   });
   try {
-    await sleep(3000);
+    await sleep(1500);
     dispatch({
       type: AUTH_SUCCESS,
       payload: {

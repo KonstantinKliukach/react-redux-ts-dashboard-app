@@ -9,6 +9,7 @@ const StyledHeader = styled.header`
   align-items: center;
   justify-content: space-between;
   padding: 0px 32px;
+  grid-area: header;
 `;
 
 const Header: React.FC = () => (
