@@ -19,7 +19,10 @@ const StyledLi = styled.li<ActiveProps>`
   border-radius: 0px 10px 10px 0px;
   &:hover {
     color: ${(props) => props.theme.colors.primary.hover};
-  }
+  };
+  &:active {
+    color: ${(props) => props.theme.colors.primary.active};
+  };
 `;
 
 const StyledLink = styled(Link)`
@@ -45,6 +48,9 @@ const IconWrapper = styled.div<ActiveProps>`
     stroke: ${(props) => (props.active ? props.theme.colors.primary.stat : props.theme.colors.secondary.stat)};
     ${StyledLink}:hover & {
       stroke: ${(props) => props.theme.colors.primary.hover};
+    };
+    ${StyledLi}:active & {
+      stroke: ${(props) => props.theme.colors.primary.active};
     };
   }
 `;

@@ -7,16 +7,6 @@ import { getAuthState } from 'context/redux/reducers/auth';
 
 import { ReactComponent as ReactIcon } from 'assets/icons/menu_arrow/arrow.svg';
 
-const StyledSpan = styled.span`
-  font-weight: ${(props) => props.theme.fontWeights.regular};
-  font-size:  ${(props) => props.theme.fontSizes.large};
-  color: ${(props) => props.theme.colors.fontColors.main};
-`;
-
-const UserName = styled(StyledSpan)`
-  margin-right: 21px;
-`;
-
 const StyledButton = styled.button`
   background: none;
   color: inherit;
@@ -29,6 +19,26 @@ const StyledButton = styled.button`
   align-items: center;
   padding-top: 19px;
   padding-bottom: 19px;
+`;
+
+const StyledSpan = styled.span`
+  font-weight: ${(props) => props.theme.fontWeights.regular};
+  font-size:  ${(props) => props.theme.fontSizes.large};
+  color: ${(props) => props.theme.colors.fontColors.main};
+  transition: color 0.25s;
+  ${StyledButton}:hover & {
+    color: ${(props) => props.theme.colors.primary.hover};
+  };
+  ${StyledButton}:active & {
+    color: ${(props) => props.theme.colors.primary.active};
+  };
+  ${StyledButton}:disabled & {
+    color: ${(props) => props.theme.colors.primary.disabled};
+  };
+`;
+
+const UserName = styled(StyledSpan)`
+  margin-right: 21px;
 `;
 
 const StyledArrowIcon = styled(ReactIcon)`
