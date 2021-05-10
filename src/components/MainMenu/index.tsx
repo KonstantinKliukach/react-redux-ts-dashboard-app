@@ -6,7 +6,7 @@ import { ReactComponent as ReactNotifications } from 'assets/icons/menu/push.svg
 import styled from 'styled-components';
 import MainMenuItem from './MainMenuItem';
 
-interface MenuItemList {
+export interface MenuItemList {
   id: number,
   name: string,
   path: string,
@@ -43,7 +43,7 @@ const MainMenu: React.FC = () => {
             key={menuItem.id}
             path={menuItem.path}
             name={menuItem.name}
-            active={pathname === menuItem.path}
+            active={pathname.includes(menuItem.path)}
             >
               <menuItem.logo />
             </MainMenuItem>)

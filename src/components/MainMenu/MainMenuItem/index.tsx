@@ -11,11 +11,11 @@ interface MenuItem {
 type ActiveProps = Pick<MenuItem, 'active'>;
 
 const StyledLi = styled.li<ActiveProps>`
+  max-width: 268px;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
   background-color: ${(props) => (props.active ? props.theme.colors.active : '#FFF')};
   color: ${(props) => (props.active ? props.theme.colors.fontColors.main : '#91A0C9')};
-  list-style-type: none;
   border-radius: 0px 10px 10px 0px;
   &:hover {
     color: ${(props) => props.theme.colors.primary.hover};
@@ -31,8 +31,6 @@ const StyledLink = styled(Link)`
   padding-top: 14px;
   padding-bottom: 11px;
   padding-left: 32px;
-  text-decoration: none;
-  color: inherit;
 `;
 
 const StyledSpan = styled.span`
