@@ -36,6 +36,8 @@ const TextContainer = styled.div<WithImage>`
 `;
 
 const PushHeader = styled.h3`
+  white-space: pre-line;
+  overflow-wrap: anywhere;
   margin: 0;
   margin-bottom: 5px;
   color: ${(props) => props.theme.colors.fontColors.secondary};
@@ -44,6 +46,8 @@ const PushHeader = styled.h3`
 `;
 
 const PushText = styled.p`
+  white-space: pre-line;
+  overflow-wrap: anywhere;
   margin: 0;
   color: ${(props) => props.theme.colors.fontColors.main};
   font-size:  12px;

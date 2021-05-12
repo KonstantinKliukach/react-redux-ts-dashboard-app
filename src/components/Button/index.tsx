@@ -41,8 +41,11 @@ const IconWrapper = styled.div`
   }
 `;
 
+// eslint-disable-next-line max-len
 interface Button {
   text: string;
+  onClick: () => void;
+  disabled?: boolean;
 }
 
 const Button: React.FC<Button> = ({ text, children, ...rest }) => (
