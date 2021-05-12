@@ -13,10 +13,32 @@ const StyledButton = styled.button`
   display: flex;
   align-items: center;
   padding: 16px 31px;
+  transition: background-color 0.25s;
+  &:hover {
+    background-color: ${(props) => props.theme.colors.secondary.hover};
+  };
+  &:active {
+    background-color: ${(props) => props.theme.colors.secondary.active};
+  };
+  &:disabled {
+    background-color: ${(props) => props.theme.colors.disabled};
+    color: #BFCBE9;
+  };
 `;
 
 const StyledSpan = styled.span`
   margin-left: 23px;
+`;
+
+const IconWrapper = styled.div`
+  max-height: 25px;
+  svg {
+    -webkit-transition: all 0.25s;
+    transition: all 0.25s;
+    ${StyledButton}:disabled & {
+      stroke: #BFCBE9;
+    };
+  }
 `;
 
 interface Button {
@@ -25,7 +47,9 @@ interface Button {
 
 const Button: React.FC<Button> = ({ text, children, ...rest }) => (
   <StyledButton {...rest}>
-    {children}
+      <IconWrapper>
+        {children}
+      </IconWrapper>
     <StyledSpan>{text}</StyledSpan>
   </StyledButton>
 );

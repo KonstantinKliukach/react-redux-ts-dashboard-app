@@ -1,3 +1,4 @@
+import CrossButton from 'components/CrossButton';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -12,6 +13,7 @@ const StyledLabel = styled.label`
 `;
 
 const StyledInput = styled.input`
+  box-sizing:border-box;
   color: #97A7CF;
   font-size:  ${(props) => props.theme.fontSizes.small};
   font-weight: ${(props) => props.theme.fontWeights.regular};
@@ -32,18 +34,43 @@ const StyledInput = styled.input`
   }
 `;
 
+const StyledCrossButton = styled(CrossButton)`
+  position: absolute;
+  top: 0;
+  right: 0;
+`;
+
+const InputContainer = styled.div`
+  position: relative;
+`;
+
+interface IFormFieldContainer {
+  width: string;
+}
+
+const FormFieldContainer = styled.div<IFormFieldContainer>`
+  width: ${(props) => props.width};
+`;
+
 // eslint-disable-next-line max-len
-interface FormField {
+export interface IFormField {
   label: string;
   name: string;
   placeholder: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
+  onClear: () => void;
+  value: string;
+  width?: string;
 }
 
-const FormField: React.FC<FormField> = ({ label, name, ...rest }) => (
-  <div>
+const FormField: React.FC<IFormField> = ({ label, name, width = '685px', onClear, ...rest }) => (
+  <FormFieldContainer width={width}>
     <StyledLabel htmlFor={name}>{label}</StyledLabel>
-    <StyledInput name={name} {...rest} />
-  </div>
+    <InputContainer>
+      <StyledInput name={name} {...rest} />
+      <StyledCrossButton onClick={onClear} />
+    </InputContainer>
+  </FormFieldContainer>
 );
 
 export default FormField;
