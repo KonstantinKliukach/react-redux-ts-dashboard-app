@@ -1,12 +1,19 @@
+import React from 'react';
+
 import { MenuItemList } from 'components/MainMenu';
 import Tabs from 'components/Tabs';
-import React from 'react';
 import {
   Switch,
   Redirect,
   Route,
   useRouteMatch,
 } from 'react-router-dom';
+import styled from 'styled-components';
+import Global from './Global';
+
+const Container = styled.div`
+  padding: 43px 51px;
+`;
 
 export type Tab = Omit<MenuItemList, 'logo'>
 
@@ -33,12 +40,14 @@ const Notifications: React.FC = () => {
   return (
     <>
       <Tabs tabs={tabs} />
-      <Switch>
-        <Route path={url + tabs[0].path}>
-          Global
-        </Route>
-      </Switch>
-      <Redirect to={url + tabs[0].path} />
+      <Container>
+        <Switch>
+          <Route path={url + tabs[0].path}>
+            <Global />
+          </Route>
+        </Switch>
+        <Redirect to={url + tabs[0].path} />
+      </Container>
     </>
   );
 };

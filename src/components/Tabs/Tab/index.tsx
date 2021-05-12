@@ -28,7 +28,7 @@ const StyledLi = styled.li<ActiveProps>`
     content: "";
     position: absolute;
     width: 74px;
-    height: 2px;
+    height: 3px;
     bottom: 0;
     margin-left: auto;
     margin-right: auto;
